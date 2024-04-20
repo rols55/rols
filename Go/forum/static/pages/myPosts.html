@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/post.css">
+    <link rel="stylesheet" href="/static/styles/postContainer.css">
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <title>Forumt</title>
+</head>
+
+<body>
+    {{template "header" .}}
+    <main>
+        {{range .}}
+        <article class="post">
+            <header class="post-header">
+                <h3 class="post-title">{{.Title}}</h3>
+                <p class="post-author">{{.Username}}</p>
+            </header>
+            <div class="post-content">
+                <p class="post-text">{{.Body}}</p>
+                <ul class="post-tags" data-categories={{.Categories}}>
+                </ul>
+            </div>
+            <footer class="post-footer">
+                <div class="post-reactions">
+                    <form action="/likePost" method="post">
+                        <button type="submit" class="like-icon">👍</button>
+                        <span class="like-count">{{.Likes}}</span>
+                        <input type="hidden" name="like" id="likePost" value={{.Id}}>
+                    </form>
+                    <form action="/dislikePost" method="post">
+                        <button type="submit" class="dislike-icon">👎</button>
+                        <span class="dislike-count">{{.Dislikes}}</span>
+                        <input type="hidden" name="dislike" id="dislikePost" value={{.Id}}>
+                    </form>
+                </div>
+            </footer>
+        </article>
+        {{end}}
+    </main>
+    <script src="/static/scripts/post.js"></script>
+    <script src="/static/scripts/login.js"></script>
+</body>
+
+</html>

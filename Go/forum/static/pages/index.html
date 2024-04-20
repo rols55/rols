@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Forum</title>
+  <link rel="stylesheet" href="/static/styles/index.css">
+  <link rel="stylesheet" href="/static/styles/postContainer.css">
+  <link rel="stylesheet" href="/static/styles/header.css">
+  <link rel="stylesheet" href="/static/styles/filterBox.css">
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  {{template "header" .}}
+  <main>
+    <aside id="filters">
+      <h2 id="filter-heading">Filters</h2>
+      <form id="filter-form">
+        <h3 id="filter-sub-heading">Tags:</h3>
+        <div id="tags">
+        </div>
+        <h3 id="filter-sub-heading">Sort by:</h3>
+        <select id="sort-by" name="sort-by" default="date">
+          <option value="date">Date</option>
+          <option value="likes">Likes</option>
+          <option value="dislikes">Dislikes</option>
+        </select>
+        <button id="apply-filters" type="submit">Apply Filters</button>
+      </form>
+    </aside>
+    <section id="posts">
+      <template id="post-template">
+        <article class="post">
+
+          <header>
+            <h3 class="post-title"></h3>
+            <p class="post-author"></p>
+          </header>
+
+          <div class="post-content">
+            <p class="post-text"></p>
+            <ul class="post-tags"></ul>
+          </div>
+
+          <footer>
+            <div class="post-reactions">
+              <div class="score">
+                <form action="/likePost" method="post">
+                  <button type="submit" class="like-icon"></button>
+                  <span class="like-count"></span>
+                  <input type="hidden" name="like" id="likePost">
+                </form>
+                <form action="/dislikePost" method="post">
+                  <button type="submit" class="dislike-icon"></button>
+                  <span class="dislike-count"></span>
+                  <input type="hidden" name="dislike" id="dislikePost">
+                </form>
+              </div>
+              <form action="/post" method="GET" name="postId" id="showPost">
+                <input type="hidden" name="postId" id="post-id">
+                <button type="submit" class="comment-button">Show Comments</button>
+              </form>
+            </div>
+          </footer>
+        </article>
+      </template>
+    </section>
+  </main>
+  <script src="/static/scripts/index.js"></script>
+  <script src="/static/scripts/login.js"></script>
+</body>
+
+</html>

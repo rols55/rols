@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS event_attendance (
+  event_id INTEGER NOT NULL,
+  user_id INTEGER NOT NULL,
+  is_going BOOLEAN NOT NULL,
+  FOREIGN KEY (event_id) REFERENCES events(id) ON DELETE CASCADE
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

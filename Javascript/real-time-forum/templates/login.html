@@ -1,0 +1,49 @@
+
+{{define "login"}}
+<div class="modal" id="loginModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+
+
+
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-body border-0 pt-1">
+
+			<ul class="nav nav-tabs justify-content-center mb-4">
+				<li class="nav-item">
+					<button class="nav-link btn-light me-2 bg-transparent border-0 active" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</button>
+				</li>
+				<li class="nav-item">
+					<button class="nav-link btn-light me-2 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#signupModal">Sign up</button>
+				</li>
+
+			</ul>
+
+
+
+			<p id="loginMsgField" class="mt-2 mb-2 text-center text-danger" hidden>Error</p>
+			<form id="loginForm" method="post">
+				<div class="form-group mb-2 mx-4">
+					<label for="username fs-4">Username or Email</label>
+					<input type="text" id="loginUsername" class="form-control"/>
+				</div>
+				<div class="form-group mx-4">
+					<label for="password fs-4">Password</label>
+					<input type="password" id="loginPassword" class="form-control"/>
+				</div>
+				<div class="form-group text-center mt-3 mb-2">
+					<input type="submit" id="submitLoginForm" class="btn btn-primary" value="Log in"/>
+				</div>
+			</form>
+		</div>
+	  </div>
+	</div>
+</div>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+        loginModal.show();
+    });
+</script>
+
+{{end}}

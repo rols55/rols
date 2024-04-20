@@ -1,0 +1,13 @@
+{{define "categories"}}
+        <div class="col-lg-2 ps-0 pe-0">
+            <div id="categoryWrapper" class="sticky-top">
+                <h5>Topics</h5>
+                <div id="categories" class="d-flex flex-wrap align-items-start">
+                    <a id="0" href="#" class="categoryBubble">All categories</a>
+                    {{range .Categories}}
+                        <a id="{{.Id}}" href="#" class="categoryBubble">{{.Category}}</a>
+                    {{end}}
+                </div>
+            </div>
+        </div>
+{{end}}

@@ -1,0 +1,430 @@
+.main {
+    display: flex;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    /* Center children vertically */
+    align-items: center;
+    /* Center children horizontally */
+    color: white;
+    background-color: #000;
+    margin-top: 50px;
+}
+
+.root {
+    display: flex;
+    flex-direction: row;
+}
+
+/*
+#game-board {
+    display: flex;
+    flex-wrap: wrap;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+.cube {
+    width: 100px;
+    height: 100px;
+    background-color: #d34646;
+    border: 1px solid #ccc;
+}
+*/
+
+.nickname-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    gap: 5px;
+}
+
+.map {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+}
+
+.row {
+    display: flex;
+}
+
+.tile {
+    width: 64px;
+    height: 64px;
+    /*background-color: #afafaf;*/
+}
+
+.empty {
+    background-image: url('img/grass.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-size: 66px 66px;
+    overflow: hidden;
+    position: relative;
+}
+
+
+.player {
+    background-image: url('img/player.png');
+    background-repeat: no-repeat;
+    background-size: 66px 66px;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.enemy {
+    background-color: #d34646;
+}
+
+.powerSpeed {
+    background-image: url('img/speed+.png'), url('img/grass.jpg');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-color: transparent;
+    background-position: center, center;
+    background-size: contain, contain;
+}
+
+.powerFlame {
+    background-image: url('img/flame+.png'), url('img/grass.jpg');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-color: transparent;
+    background-position: center, center;
+    background-size: contain, contain;
+}
+
+.powerBomb {
+    background-image: url('img/bomb+.png'), url('img/grass.jpg');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-color: transparent;
+    background-position: center, center;
+    background-size: contain, contain;
+}
+
+.bomb {
+    background-image: url('img/bomb.png');
+    background-repeat: no-repeat;
+    background-size: 66px 66px;
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.explosion {
+    background-image: url('img/explosion.png'), url('img/grass.jpg');
+    background-repeat: no-repeat;
+    overflow: hidden;
+    background-color: transparent;
+    background-position: center, center;
+    background-size: contain, contain;
+}
+
+.tile.empty.player1.explosion {
+    background-image: url('img/explosion.png'), url('img/player.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.player2.explosion {
+    background-image: url('img/explosion.png'), url('img/player2.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.player3.explosion {
+    background-image: url('img/explosion.png'), url('img/player3.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.player4.explosion {
+    background-image: url('img/explosion.png'), url('img/player4.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.powerFlame.explosion {
+    background-image: url('img/explosion.png'), url('img/flame+.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.powerSpeed.explosion {
+    background-image: url('img/explosion.png'), url('img/speed+.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.powerBomb.explosion {
+    background-image: url('img/explosion.png'), url('img/bomb+.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.explosion.bomb {
+    background-image: url('img/explosion.png'), url('img/bomb.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.box {
+    background-image: url('img/wood.jpg');
+    background-repeat: no-repeat;
+    background-size: 66px 66px;
+    overflow: hidden;
+}
+
+.wall {
+    background-image: url('img/wall.jpg');
+    background-repeat: no-repeat;
+    background-size: 66px 66px;
+    overflow: hidden;
+}
+
+.chat {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    margin-top: 45px;
+    margin-left: 50px;
+    color: black;
+    border: 5px solid #857669;
+    border-radius: 10px;
+    background-color: #F8D6A7;
+}
+
+.messageContainer {
+    height: 400px;
+    overflow-y: auto;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.message {
+    background-color: #85766993;
+    border-radius: 8px;
+    padding: 8px;
+    margin-bottom: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    word-wrap: break-word;
+}
+
+.inputForm {
+    display: flex;
+}
+
+.input {
+    flex: 1;
+    padding: 8px;
+    border-radius: 8px 8px 8px 8px;
+    border: 1px solid #ccc;
+    min-width: 220px;
+}
+
+.avatar.player1 {
+    background-image: url('img/player.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 64px;
+    height: 64px;
+}
+
+.avatar.player2 {
+    background-image: url('img/player2.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 64px;
+    height: 64px;
+}
+
+.avatar.player3 {
+    background-image: url('img/player3.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 64px;
+    height: 64px;
+}
+
+.avatar.player4 {
+    background-image: url('img/player4.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 64px;
+    height: 64px;
+}
+
+.tile.empty.player1 {
+    background-image: url('img/player.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.player2 {
+    background-image: url('img/player2.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.player3 {
+    background-image: url('img/player3.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.player4 {
+    background-image: url('img/player4.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.bomb {
+    background-image: url('img/bomb.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.player1.bomb {
+    background-image: url('img/bomb.png'), url('img/player.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.player2.bomb {
+    background-image: url('img/bomb.png'), url('img/player2.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.player3.bomb {
+    background-image: url('img/bomb.png'), url('img/player3.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.tile.empty.player4.bomb {
+    background-image: url('img/bomb.png'), url('img/player4.png'), url('img/grass.jpg');
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.chatLogo {
+    display: flex;
+    background-image: url('img/logo.jpg');
+    width: 200px;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    margin-left: 90px;
+}
+
+.logo {
+    display: flex;
+    background-image: url('img/logo.jpg');
+    width: 250px;
+    height: 250px;
+    background-size: cover;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 10px;
+}
+
+.sender {
+    font-weight: bold;
+}
+
+.life {
+    background-image: url('img/heart.png');
+    width: 24px;
+    height: 24px;
+    background-position: center, center;
+    background-repeat: no-repeat;
+    background-size: contain, contain;
+}
+
+.lives {
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+}
+
+.statsContainer {
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    margin: auto;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 20px;
+    width: 150px;
+    color: black;
+    border: 5px solid #857669;
+    border-radius: 10px;
+    background-color: #F8D6A7;
+    margin-right: 50px;
+}
+
+.overlay {
+    font-size: x-large;
+    color: black;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+  }

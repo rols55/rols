@@ -1,0 +1,14 @@
+{{define "menu"}}
+    <nav class="navbar navbar-expand py-0 navbar-light bg-white border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand ms-2 py-0 fs-1" href="/">FORUM</a>
+            <div>
+                <div class="navbar-nav" {{if eq .Authenticated false}} hidden {{end}}>
+                    <span class="navbar-text me-3 text-body">{{if eq .Authenticated true}} Welcome, {{.User.Username}}!{{end}}</span>
+                    <button class="nav-link me-2 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#createPostModal">Create post</button>
+                    <a class="nav-link me-2" href="/logout">Log out</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+{{end}}

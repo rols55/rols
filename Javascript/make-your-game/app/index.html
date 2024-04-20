@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="index.js" charset="utf-8"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css"></link>
+    <title>Basic Tetris</title>
+  </head>
+  <body>
+
+    <div class = "game">    
+
+      <div class="container">
+
+        <div class="grid">
+        </div>
+
+        <div>
+          <div class="mini-grid">            
+          </div>
+          
+          <div class="score">
+            Score:&nbsp;<span id="score">0</span>
+          </div>
+
+          <div class="time">
+          Time: 
+            <span id="stopwatch">00:00</span>
+          </div>
+
+          <div >
+            <button id="start-button" class="button">Start/Pause</button>
+          </div>
+          <div>
+          <button id="restart-button" class="button">Restart</button>
+          </div>
+
+          <div class="controls">
+            Control keys:
+            <div class="control-key">
+              <div class="item item-left">Left arrow -</div>
+              <div class="item item-right">&nbsp;Move left</div>
+            </div>
+            <div class="control-key">
+              <div class="item item-left">Right arrow -</div>
+              <div class="item item-right">&nbsp;Move right</div>
+            </div>
+            <div class="control-key">
+              <div class="item item-left">Up arrow -</div>
+              <div class="item item-right">&nbsp;Rotate right</div>
+            </div>
+            <div class="control-key">
+              <div class="item item-left">Down arrow -</div>
+              <div class="item item-right">&nbsp;Soft drop</div>
+            </div>
+            <div class="control-key">
+              <div class="item item-left">Space -</div>
+              <div class="item item-right">&nbsp;Hard drop </div>
+            </div>
+            <div class="control-key">
+              <div class="item item-left">R -</div>
+              <div class="item item-right">&nbsp;Restart </div>
+            </div>
+          </div>
+
+        </div>
+              
+      </div>
+
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/post.css">
+    <link rel="stylesheet" href="/static/styles/postContainer.css">
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <title>Forum</title>
+</head>
+
+<body>
+    {{template "header" .}}
+    <main>
+        <article class="post">
+            <header class="post-header">
+                <h3 class="post-title">{{.Post.Title}}</h3>
+                <p class="post-author">{{.Post.Username}}</p>
+            </header>
+            <div class="post-content">
+                <p class="post-text">{{.Post.Body}}</p>
+                <ul class="post-tags" data-categories={{.Post.Categories}}>
+                </ul>
+            </div>
+            <footer class="post-footer">
+                <div class="post-reactions">
+                    <form action="/likePost" method="post">
+                        <button type="submit" class="like-icon">👍</button>
+                        <span class="like-count">{{.Post.Likes}}</span>
+                        <input type="hidden" name="like" id="likePost" value={{.Post.Id}}>
+                    </form>
+                    <form action="/dislikePost" method="post">
+                        <button type="submit" class="dislike-icon">👎</button>
+                        <span class="dislike-count">{{.Post.Dislikes}}</span>
+                        <input type="hidden" name="dislike" id="dislikePost" value={{.Post.Id}}>
+                    </form>
+                </div>
+            </footer>
+        </article>
+        <section class="comments">
+            {{range .Comments}}
+            <div class="comment">
+                <header class="comment-header">
+                    <div class="comment-author">{{.Username}}</div>
+                </header>
+                <div class="comment-body">{{.Body}}</div>
+                <footer class="comment-footer">
+                    <form action="/likeComment" method="post">
+                        <button class="like-icon">👍</button>
+                        <span class="like-count">{{.Likes}}</span>
+                        <input type="hidden" name="like" value={{.Id}}>
+                    </form>
+                    <form action="/dislikeComment" method="post">
+                        <button class="dislike-icon">👎</button>
+                        <span class="dislike-count">{{.Dislikes}}</span>
+                        <input type="hidden" name="dislike" value={{.Id}}>
+                    </form>
+                </footer>
+            </div>
+            {{end}}
+            <div class="createComment" id="commentSubmissionForm">
+                <form action="/createComment" method="POST">
+                    <label for="content">Comment</label><br>
+                    <textarea id="content" name="content" maxlength="1000"
+                        placeholder="Type your comment here"></textarea><br>
+                    <input type="submit" value="Submit">
+                    <input type="hidden" name="postId" value={{.Post.Id}}>
+                </form>
+            </div>
+        </section>
+    </main>
+    <script src="/static/scripts/post.js"></script>
+    <script src="/static/scripts/login.js"></script>
+</body>
+
+</html>

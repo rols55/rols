@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Groupie tracker</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../style/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+    <!--defer makes script load after web age loads-->
+</head>
+
+<body>
+    <!--dummy script tag so developer tools don't display errors about forced layout-->
+    <script>0</script>
+    <div id="loading">
+        <img src="https://cdn.betterttv.net/emote/5ab6f0ece1d6391b63498774/3x.webp" alt="coggers">
+    </div>
+    <header>
+        <H1 id="page_name">Groupie tracker</H1>
+        <h2 id="redirect">Back</h2>
+    </header>
+    <div class="content" id="content">
+        <!--Card consists of artist's picture and name-->
+        {{range .}}
+        <div class="card" id="card{{.Id}}">
+            <img src="{{.Image}}" alt="{{.Name}}" class="albumArt">
+            <label>{{.Name}}</label>
+        </div>
+            <div class="artistInfo" id="artistInfo">
+                <h2>{{.Name}}</h2>
+                <p>Creation date : {{.CreationDate}}</p>
+                <p>First album: {{.FirstAlbum}}</p>
+                <h3>Members</h3>
+                {{range .Members}}
+                <p>{{ . }}</p>
+                {{end}}
+            </div>
+            <div class="tours" id="tours">
+                <div id="locations">
+                    <h2>Tour dates</h2>
+                    <h3>Locations</h3>
+                    {{range .Locations}}
+                    <p>{{ . }}</p>
+                    {{end}}
+                </div>
+                <div id="dates">
+                    <h2 id="level">Level</h2>
+                    <h3>Dates</h3>
+                    {{range .ConcertDates}}
+                    <p>{{ . }}</p>
+                    {{end}}
+                </div>
+            </div>
+        {{end}}
+    </div>
+    <footer>This project was made by Jaan.Ginzul, _parker_, rols55</footer>
+    <script src="../style/testPage.js"></script>
+</body>
+
+</html>

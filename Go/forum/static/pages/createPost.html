@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles/post.css">
+    <link rel="stylesheet" href="/static/styles/header.css">
+    <link rel="stylesheet" href="/static/styles/createPost.css">
+    <title>Forum</title>
+</head>
+
+<body>
+    {{template "header" .}}
+    <main>
+        <div class="createPost" id="postSubmissionForm">
+            <form action="/savePost" method="POST">
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title" maxlength="500" required><br>
+                <label for="content">Post:</label><br>
+                <textarea id="content" name="content" maxlength="5000" required></textarea><br>
+                <label for="categories">Categories: separate categories with comma</label><br>
+                <textarea name="categories" id="categories" maxlength="100" required></textarea><br>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </main>
+    <script src="/static/scripts/post.js"></script>
+    <script src="/static/scripts/login.js"></script>
+</body>
+
+</html>

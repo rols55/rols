@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Groupie tracker</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+        <!--defer makes script load after web age loads-->
+        <script defer src="../style/script.js"></script>
+    </head>
+    <body>
+        <header>
+            <H1 id="page_name">Groupie tracker</H1>
+        </header>
+        <!--content consists of flexbox which has 4 cards, that are displaying artist's picture and name-->
+        <div class="content" id="content1">
+            <!--Card consists of artist's picture and name-->
+            <div class="card" id="card1">
+                <img src="{{(index . 0).Image}}" alt="{{(index . 0).Name}}" calss="albumArt" id="albumArt1">
+                <label id="label1">"{{(index . 0).Name}}"</label>
+            </div>
+            <div class="card" id="card2">
+                <img src="{{(index . 1).Image}}" alt="{{(index . 1).Name}}" calss="albumArt" id="albumArt2">
+                <label id="label2">"{{(index . 1).Name}}"</label>
+            </div>
+            <div class="card" id="card3">
+                <img src="{{(index . 2).Image}}" alt="{{(index . 2).Name}}" calss="albumArt" id="albumArt3">
+                <label id="label3">"{{(index . 2).Name}}"</label>
+            </div>
+            <div class="card" id="card4">
+                <img src="{{(index . 3).Image}}" alt="{{(index . 3).Name}}" calss="albumArt" id="albumArt4">
+                <label id="label4">"{{(index . 3).Name}}"</label>
+            </div>
+        </div>
+        <div class="content" id="content2">
+            <div class="card" id="card5">
+                <img src={{(index . 4).Image}} alt={{(index . 4).Name}} calss="albumArt" id="albumArt5">
+                <label id="label5">{{(index . 4).Name}}</label>
+            </div>
+            <div class="card" id="card6">
+                <img src={{(index . 5).Image}} alt={{(index . 5).Name}} calss="albumArt" id="albumArt6">
+                <label id="label6">{{(index . 5).Name}}</label>
+            </div>
+            <div class="card" id="card7">
+                <img src={{(index . 6).Image}} alt={{(index . 6).Name}} calss="albumArt" id="albumArt7">
+                <label id="label7">{{(index . 6).Name}}</label>
+            </div>
+            <div class="card" id="card8">
+                <img src={{(index . 7).Image}} alt={{(index . 7).Name}} calss="albumArt" id="albumArt8">
+                <label id="label8">{{(index . 7).Name}}</label>
+            </div>
+        </div>
+        <div class="content" id="content3">
+            <div class="card" id="card9">
+                <img src={{(index . 8).Image}} alt={{(index . 8).Name}} calss="albumArt" id="albumArt9">
+                <label id="label9">{{(index . 8).Name}}</label>
+            </div>
+            <div class="card" id="card10">
+                <img src={{(index . 9).Image}} alt={{(index . 9).Name}} calss="albumArt" id="albumArt10">
+                <label id="label10">{{(index . 9).Name}}</label>
+            </div>
+            <div class="card" id="card11">
+                <img src={{(index . 10).Image}} alt={{(index . 10).Name}} calss="albumArt" id="albumArt11">
+                <label id="label11">{{(index . 10).Name}}</label>
+            </div>
+            <div class="card" id="card12">
+                <img src={{(index . 11).Image}} alt={{(index . 11).Name}} calss="albumArt" id="albumArt12">
+                <label id="label12">{{(index . 11).Name}}</label>
+            </div>
+        </div>
+        <div class="content" id="content4">
+            <div class="card" id="card13">
+                <img src={{(index . 12).Image}} alt={{(index . 12).Name}} calss="albumArt" id="albumArt13">
+                <label id="label13">{{(index . 12).Name}}</label>
+            </div>
+            <div class="card" id="card14">
+                <img src={{(index . 13).Image}} alt={{(index . 13).Name}} calss="albumArt" id="albumArt14">
+                <label id="label14">{{(index . 13).Name}}</label>
+            </div>
+            <div class="card" id="card15">
+                <img src={{(index . 14).Image}} alt={{(index . 14).Name}} calss="albumArt" id="albumArt15">
+                <label id="label15">{{(index . 14).Name}}</label>
+            </div>
+            <div class="card" id="card16">
+                <img src={{(index . 15).Image}} alt={{(index . 15).Name}} calss="albumArt" id="albumArt16">
+                <label id="label16">{{(index . 15).Name}}</label>
+            </div>
+        </div>
+        <div class="content" id="content5">
+            <div class="card" id="card17">
+                <img src={{(index . 16).Image}} alt={{(index . 16).Name}} calss="albumArt" id="albumArt17">
+                <label id="label17">{{(index . 16).Name}}</label>
+            </div>
+            <div class="card" id="card18">
+                <img src={{(index . 17).Image}} alt={{(index . 17).Name}} calss="albumArt" id="albumArt18">
+                <label id="label18">{{(index . 17).Name}}</label>
+            </div>
+            <div class="card" id="card19">
+                <img src={{(index . 18).Image}} alt={{(index . 18).Name}} calss="albumArt" id="albumArt19">
+                <label id="label19">{{(index . 18).Name}}</label>
+            </div>
+            <div class="card" id="card20">
+                <img src={{(index . 19).Image}} alt={{(index . 19).Name}} calss="albumArt" id="albumArt20">
+                <label id="label20">{{(index . 19).Name}}</label>
+            </div>
+        </div>
+        <div class="content" id="content6">
+            <div class="card" id="card21">
+                <img src={{(index . 20).Image}} alt={{(index . 20).Name}} calss="albumArt" id="albumArt21">
+                <label id="label21">{{(index . 20).Name}}</label>
+            </div>
+            <div class="card" id="card22">
+                <img src={{(index . 21).Image}} alt={{(index . 21).Name}} calss="albumArt" id="albumArt22">
+                <label id="label22">{{(index . 21).Name}}</label>
+            </div>
+            <div class="card" id="card23">
+                <img src={{(index . 22).Image}} alt={{(index . 22).Name}} calss="albumArt" id="albumArt23">
+                <label id="label23">{{(index . 22).Name}}</label>
+            </div>
+            <div class="card" id="card24">
+                <img src={{(index . 23).Image}} alt={{(index . 23).Name}} calss="albumArt" id="albumArt24">
+                <label id="label24">{{(index . 23).Name}}</label>
+            </div>
+        </div>
+        <div class="content" id="content7">
+            <div class="card" id="card25">
+                <img src={{(index . 24).Image}} alt={{(index . 23).Name}} calss="albumArt" id="albumArt25">
+                <label id="label25">{{(index . 24).Name}}</label>
+            </div>
+            <div class="card" id="card26">
+                <img src={{(index . 25).Image}} alt={{(index . 25).Name}} calss="albumArt" id="albumArt26">
+                <label id="label26">{{(index . 25).Name}}</label>
+            </div>
+            <div class="card" id="card27">
+                <img src={{(index . 26).Image}} alt={{(index . 26).Name}} calss="albumArt" id="albumArt27">
+                <label id="label27">{{(index . 26).Name}}</label>
+            </div>
+            <div class="card" id="card28">
+                <img src={{(index . 27).Image}} alt={{(index . 27).Name}} calss="albumArt" id="albumArt28">
+                <label id="label28">{{(index . 27).Name}}</label>
+            </div>
+        </div>
+        <div class="content" id="content8">
+            <div class="card" id="card29">
+                <img src={{(index . 28).Image}} alt={{(index . 28).Name}} calss="albumArt" id="albumArt29">
+                <label id="label29">{{(index . 28).Name}}</label>
+            </div>
+            <div class="card" id="card30">
+                <img src={{(index . 29).Image}} alt={{(index . 29).Name}} calss="albumArt" id="albumArt30">
+                <label id="label30">{{(index . 29).Name}}</label>
+            </div>
+            <div class="card" id="card31">
+                <img src={{(index . 30).Image}} alt={{(index . 30).Name}} calss="albumArt" id="albumArt31">
+                <label id="label31">{{(index . 30).Name}}</label>
+            </div>
+            <div class="card" id="card32">
+                <img src={{(index . 31).Image}} alt={{(index . 31).Name}} calss="albumArt" id="albumArt32">
+                <label id="label32">{{(index . 31).Name}}</label>
+            </div>
+        </div>
+        <div class="content" id="content9">
+            <div class="card" id="card33">
+                <img src={{(index . 32).Image}} alt={{(index . 32).Name}} calss="albumArt" id="albumArt33">
+                <label id="label33">{{(index . 32).Name}}</label>
+            </div>
+            <div class="card" id="card34">
+                <img src={{(index . 33).Image}} alt={{(index . 33).Name}} calss="albumArt" id="albumArt34">
+                <label id="label34">{{(index . 33).Name}}</label>
+            </div>
+            <div class="card" id="card35">
+                <img src={{(index . 34).Image}} alt={{(index . 34).Name}} calss="albumArt" id="albumArt35">
+                <label id="label35">{{(index . 34).Name}}</label>
+            </div>
+            <div class="card" id="card36">
+                <img src={{(index . 35).Image}} alt={{(index . 35).Name}} calss="albumArt" id="albumArt36">
+                <label id="label36">{{(index . 35).Name}}</label>
+            </div>
+        </div>
+        <div class="content" id="content10">
+            <div class="card" id="card37">
+                <img src={{(index . 36).Image}} alt={{(index . 36).Name}} calss="albumArt" id="albumArt37">
+                <label id="label37">{{(index . 36).Name}}</label>
+            </div>
+            <div class="card" id="card38">
+                <img src={{(index . 37).Image}} alt={{(index . 37).Name}} calss="albumArt" id="albumArt38">
+                <label id="label38">{{(index . 37).Name}}</label>
+            </div>
+            <div class="card" id="card39">
+                <img src={{(index . 38).Image}} alt={{(index . 38).Name}} calss="albumArt" id="albumArt39">
+                <label id="label39">{{(index . 38).Name}}</label>
+            </div>
+            <div class="card" id="card40">
+                <img src={{(index . 39).Image}} alt={{(index . 39).Name}} calss="albumArt" id="albumArt40">
+                <label id="label40">{{(index . 39).Name}}</label>
+            </div>
+        </div>
+        <div class="content" id="content11">
+            <div class="card" id="card41">
+                <img src={{(index . 40).Image}} alt={{(index . 40).Name}} calss="albumArt" id="albumArt41">
+                <label id="label41">{{(index . 40).Name}}</label>
+            </div>
+            <div class="card" id="card42">
+                <img src={{(index . 41).Image}} alt={{(index . 41).Name}} calss="albumArt" id="albumArt42">
+                <label id="label42">{{(index . 41).Name}}</label>
+            </div>
+            <div class="card" id="card43">
+                <img src={{(index . 42).Image}} alt={{(index . 42).Name}} calss="albumArt" id="albumArt43">
+                <label id="label43">{{(index . 42).Name}}</label>
+            </div>
+            <div class="card" id="card44">
+                <img src={{(index . 43).Image}} alt={{(index . 43).Name}} calss="albumArt" id="albumArt44">
+                <label id="label44">{{(index . 43).Name}}</label>
+            </div>
+        </div>
+        <div class="content" id="content12">
+            <div class="card" id="card45">
+                <img src={{(index . 44).Image}} alt={{(index . 44).Name}} calss="albumArt" id="albumArt45">
+                <label id="label45">{{(index . 44).Name}}</label>
+            </div>
+            <div class="card" id="card46">
+                <img src={{(index . 45).Image}} alt={{(index . 45).Name}} calss="albumArt" id="albumArt46">
+                <label id="label46">{{(index . 45).Name}}</label>
+            </div>
+            <div class="card" id="card47">
+                <img src={{(index . 46).Image}} alt={{(index . 46).Name}} calss="albumArt" id="albumArt47">
+                <label id="label47">{{(index . 46).Name}}</label>
+            </div>
+            <div class="card" id="card48">
+                <img src={{(index . 47).Image}} alt={{(index . 47).Name}} calss="albumArt" id="albumArt48">
+                <label id="label48">{{(index . 47).Name}}</label>
+            </div>
+        </div>
+        <div class="content" id="content13">
+            <div class="card" id="card49">
+                <img src={{(index . 48).Image}} alt={{(index . 48).Name}} calss="albumArt" id="albumArt49">
+                <label id="label49">{{(index . 48).Name}}</label>
+            </div>
+            <div class="card" id="card50">
+                <img src={{(index . 49).Image}} alt={{(index . 49).Name}} calss="albumArt" id="albumArt50">
+                <label id="label50">{{(index . 49).Name}}</label>
+            </div>
+            <div class="card" id="card51">
+                <img src={{(index . 50).Image}} alt={{(index . 50).Name}} calss="albumArt" id="albumArt51">
+                <label id="label51">{{(index . 50).Name}}</label>
+            </div>
+            <div class="card" id="card52">
+                <img src={{(index . 51).Image}} alt={{(index . 51).Name}} calss="albumArt" id="albumArt52">
+                <label id="label52">{{(index . 51).Name}}</label>
+            </div>
+        </div>
+        <footer>This project was made by Jaan.Ginzul, _parker_, rols55</footer>
+    </body>
+    </html>

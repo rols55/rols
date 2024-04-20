@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Magical text-o-matic</title>
+        <link rel="stylesheet" href="../style/style.css"/>
+    </head>
+</html>
+<body>
+    <h1>You can turn your text into art by</h1>
+    <br>
+        <pre id="output">{{.}}</pre>
+        <div id="buttons">
+            <form method="GET" action="/download">
+            <input type="submit" id="download" value="Download" name="download">
+            <a id="back" href="./">Start over</a>
+            </form>
+        </div>
+</body>

@@ -1,0 +1,161 @@
+html {
+height: 100%;
+}
+
+body {
+    min-height: 100%;
+    text-align: center;
+    background: rgb(238,174,202);
+    background: linear-gradient(0deg, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+h1 {
+    margin-top: 5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 300%;
+    color: rgb(255, 255, 255);
+    text-shadow: 3px 3px 10px rgb(0, 0, 0);
+}
+
+h1::after {
+    content: " ~*magic*~";
+    font-style: italic;
+    text-shadow: 1px 1px 10px rgb(255, 230, 0);
+}
+
+#ascii_input {
+    border: none;
+    opacity:0.7;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 20px;
+    background-color: white;
+    margin-top: 3%;
+    font-size: 200%;
+    width: auto;
+    height: auto;
+}
+
+#ascii_input:hover {
+    border: none;
+    opacity: 1;
+    box-shadow: 5px 5px 10px black;
+    background-color: rgb(255, 255, 255);
+}
+
+#ascii_input:focus {
+    border: none;
+    opacity: 1;
+    box-shadow: 5px 5px 10px black;
+    background-color: rgb(255, 255, 255);
+}
+
+#submit {
+    border:none;
+    opacity:0.5;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 10px;
+    background-color: white;
+    transform: rotate(337deg);
+    position: relative;
+    bottom: 15%;
+    right: 4%;
+    font-size: 200%;
+}
+
+#submit:hover {
+    opacity: 1;
+    box-shadow: 0px 0px 25px rgb(255, 230, 0);
+    background-color: rgb(255, 255, 255);
+}
+
+#submit:active {
+    opacity: 1;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0);
+}
+
+img {
+    width: 10%;
+    height: 10%;
+    position: relative;
+    left: 4%;
+    top: 5%;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    color: white;
+    font-size: 200%;
+}
+
+.text_style {
+    align-items: center;
+    margin-top: 2.5%;
+    margin-left: 2%;
+}
+
+input[type=radio] {
+    display: none;
+    height: 0;
+    width: 0;
+}
+
+label {
+    padding: 0.5%;
+    margin-right: 1%;
+    cursor: pointer;
+    font-size: 120%;
+    transition: 1s ease-out;
+    border-radius: 15px 15px 15px 15px;
+    background-color: white;
+    opacity: 0.7;
+    box-shadow: 5px 5px 10px black;
+}
+
+input[type="radio"]:checked + label {
+    opacity: 1;
+    box-shadow: 0px 0px 25px rgb(255, 230, 0);
+}
+
+#download, #back {
+    border: none;
+    opacity: 0.5;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 10px;
+    background-color: white;
+    font-size: 150%;
+    width: fit-content;
+    align-self: center;
+    margin-top: 5%;
+    margin-right: 10%;
+    margin-left: 8%;
+    text-decoration: none;
+    color:black;
+    padding: 0.25%;
+}
+
+#download:hover, #back:hover {
+    opacity: 1;
+    background-color: rgb(255, 255, 255);
+}
+
+#download:active, #back:active {
+    opacity: 1;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0);
+}
+
+#output {
+    border: none;
+    box-shadow: 5px 5px 10px black;
+    border-radius: 20px;
+    background-color: white;
+    margin: auto;
+    margin-top: 3%;
+    padding: 0.5%;
+    font-size: 100%;
+    width: fit-content;
+    height: fit-content;
+    text-align: left;
+}

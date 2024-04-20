@@ -1,0 +1,41 @@
+{{define "header"}}
+<div class="modal" id="modal">
+  <div class="modal-header">
+    <div class="title">Login</div>
+    <button id="close-button" class="close-button">&times;</button>
+  </div>
+  <div class="modal-body">
+    <div class="login-container">
+      <form id="loginForm">
+        <input type="text" placeholder="Username" required>
+        <input type="password" placeholder="Password" required>
+        <button type="submit">Login</button>
+      </form>
+      <button id="registerButton">Register</button>
+      <form id="registerForm" style="display: none;">
+        <input type="email" placeholder="Email" required>
+        <input type="text" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[A-Z]).{8,}"
+          title="Password must be at least 8 characters long, contain at least one number, and at least one capital letter"
+          required>
+        <input type="password" id="repassword" placeholder="Retype Password" required>
+        <button type="submit">Register</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div id="overlay"></div>
+<header>
+  <h1>Example Social Media Page</h1>
+
+  <h2 id="usernameHeader"></h2>
+  <button id="createPost" class="header-button">Create Post</button>
+  <form id="myPosts" action="/myPosts" method="GET">
+    <button type="submit" class="header-button">My posts</button>
+  </form>
+  <div class="button-container">
+    <button data-modal-target="#modal" id="login" type="button" class="loging-button">Login</button>
+    <button id="logout" type="button" class="loging-button">Logout</button>
+  </div>
+</header>
+{{end}}

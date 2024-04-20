@@ -1,0 +1,63 @@
+{{define "register"}}
+<div class="modal" id="signupModal" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false">
+	<div class="modal-dialog">
+	  <div class="modal-content">
+		<div class="modal-body border-0 pt-1">
+
+
+			<ul class="nav nav-tabs justify-content-center mb-4">
+				<li class="nav-item">
+					<button class="nav-link btn-light me-2 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#loginModal">Log in</button>
+				</li>
+				<li class="nav-item">
+					<button class="nav-link btn-light me-2 bg-transparent border-0 active" data-bs-toggle="modal" data-bs-target="#signupModal">Sign up</button>
+				</li>
+			</ul>
+
+			<p id="signupErrorMsg" class="mt-2 mb-2 text-center text-danger" hidden>Error</p>
+			<form id="signupForm" method="post">
+				<div class="form-group mb-2 mx-4">
+					<label for="username fs-4">Choose username</label>
+					<input type="text" id="signupUsername" class="form-control"/>
+				</div>
+				<div class="form-group mb-2 mx-4">
+					<label for="sex fs-4">Sex</label>
+					<select id="signupSex" class="form-control">
+						<option value="male">Male</option>
+						<option value="female">Female</option>
+						<option value="other">Other</option>
+					</select>
+				</div>
+				<div class="form-group mb-2 mx-4">
+					<label for="birthday fs-4">Birthday</label>
+					<input type="date" id="birthday" name="birthday" class="form-control"/>
+				</div>
+				<div class="form-group mb-2 mx-4">
+					<label for="firstName fs-4">First Name</label>
+					<input type="text" id="signupfirstname" class="form-control"/>
+				</div>
+				<div class="form-group mb-2 mx-4">
+					<label for="lastName fs-4">Last Name</label>
+					<input type="text" id="signupLastname" class="form-control"/>
+				</div>
+				<div class="form-group mb-2 mx-4">
+					<label for="username fs-4">E-mail</label>
+					<input type="email" id="signupEmail" class="form-control"/>
+				</div>
+				<div class="form-group mb-2 mx-4">
+					<label for="password fs-4">Password</label>
+					<input type="password" id="signupPassword" class="form-control"/>
+				</div>
+				<div class="form-group mx-4">
+					<label for="password fs-4">Re-enter password</label>
+					<input type="password" id="signupPassword2" class="form-control"/>
+				</div>
+				<div class="form-group text-center mt-3 mb-2">
+					<input type="submit" id="submitSignupForm" class="btn btn-primary" value="Sign up"/>
+				</div>
+			</form>
+		</div>
+	  </div>
+	</div>
+</div>
+{{end}}

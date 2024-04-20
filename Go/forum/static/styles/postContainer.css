@@ -1,0 +1,83 @@
+.post {
+    margin-bottom: 3em;
+}
+
+.post-title {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 0.3em;
+    background-color: transparent;
+}
+
+.post-author {
+    font-size: 2em;
+    color: #999;
+    margin-bottom: 0.5em;
+    background-color: transparent;
+}
+
+.post-content {
+    margin-bottom: 1em;
+}
+
+.post-text {
+    font-size: 1.25em;
+    color: #333;
+    line-height: 1.5;
+}
+
+.post-tags {
+    display: flex;
+    list-style: none;
+    margin-bottom: 1vw;
+}
+
+.post-tags li {
+    display: inline-block;
+    background-color: #ddd;
+    color: #333;
+    padding: 0.5vw 1vw;
+    margin: 0.5vw;
+    border-radius: 1vw;
+}
+
+.post-reactions {
+    display: flex;
+    justify-content: start;
+}
+
+.score {
+    flex: 1;
+    display: flex;
+}
+
+.like-icon,
+.dislike-icon {
+    background-color: none;
+    border: none;
+    font-size: 2.5em;
+    margin: 0.25em;
+    cursor: pointer;
+}
+
+.like-count,
+.dislike-count {
+    font-size: 1.6vw;
+    color: #333;
+    margin: 0.5vw;
+}
+
+#showPost {
+    flex: 0;
+}
+
+.comment-button {
+    width: 20em;
+    height: 5em;
+    font-size: 1em;
+    background-color: #333;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}

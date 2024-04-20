@@ -1,0 +1,12 @@
+.createPost {
+    display: flex;
+    justify-content: center;
+}
+
+.createPost > form > * {
+    margin-bottom: 0.2em;
+}
+
+.createPost > form > label {
+    font-size: 2em;
+}

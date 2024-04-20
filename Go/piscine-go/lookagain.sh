@@ -1,0 +1,1 @@
+find . -iname "*.sh" | sort -r | cut -d "." -f2 | sed "s|.*/||"

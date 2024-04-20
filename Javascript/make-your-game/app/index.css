@@ -1,0 +1,140 @@
+body {
+  font-family: Oswald;
+  color: #354649;
+  background-color: #E0E7E9;
+  margin: 0; 
+  padding: 0;
+}
+
+.game{
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  margin-top: 100px;
+  padding: 55px 55px 55px 55px;
+  background-color: #A3C6C4;
+}
+  
+.grid {
+  width: 253px;
+  height: 503px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #E0E7E9;
+  border: 5px solid #6C7A89 ;
+}
+  
+.grid div {
+  height: 25px;
+  width: 25px;
+}
+
+.tetromino {
+  position: relative;
+  box-sizing: content-box;
+}
+  
+.tetromino::before,
+.tetromino::after {
+  content: '';
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  border: 3px solid rgb(0, 0, 0);
+}
+
+.mini-grid {
+  margin-left: 50px;
+  width: 117px;
+  height: 108px;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #E0E7E9;
+  border: 5px solid #6C7A89;
+}
+
+.mini-grid div {
+  height: 25px;
+  width: 25px;
+}
+
+.score{
+  margin-left: 50px;
+  margin-top: 10px;
+  padding: 4px 0px 4px 4px;
+  width: 113px;
+  border: 5px solid #6C7A89 ;
+  border-bottom: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.time{
+    font-family: Oswald;
+  margin-top: 0px;
+  margin-left: 50px;
+  margin-bottom: 5px;
+  padding-left: 4px;
+  padding: 4px 0px 4px 4px;
+  width: 113px;
+  border: 5px solid #6C7A89;
+  font-size: 18px;
+  font-weight: 500;
+  }
+
+.controls{
+  margin-top: 20px;
+  margin-left: 25px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 500;
+  color: #354649;
+}
+
+.control-key{
+  margin-top: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 180px;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.item {
+  flex: 1; 
+}
+
+.item-left {
+  text-align: right;
+}
+
+.item-right {
+  text-align: left;
+}
+
+.button{
+margin-top: 8px;
+margin-left: 64px;
+padding: 5px 5px;
+width: 97px;
+justify-content: center;
+vertical-align: top;
+font-family: Oswald;
+font-size:16px;
+font-weight: 300;
+color: #6C7A89;
+border: solid #6C7A89;
+border-radius: 15px;
+cursor: pointer;
+opacity: 80%;
+transition: opacity 0.15s;
+}
+
+.button:hover{
+opacity: 100%;
+color: #354649;
+}

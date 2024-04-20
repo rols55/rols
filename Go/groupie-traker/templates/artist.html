@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Groupie tracker</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="../style/style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+        <!--script tag is here for the main js to load after the whole page loads to avoid flashing elements-->
+        <script>let a;</script>
+    </head>
+    <body>
+        <header>
+            <H1 id="page_name">Groupie tracker</H1>
+        </header>
+        <div class="container">
+            <div class="backButton">
+                <a id="back" href="./artist.html">Back</a>
+            </div>
+            <div class="image">
+                <img src="{{(index . 0).Image}}" alt="{{(index . 0).Name}}" calss="albumArt" id="albumArt">
+                <label id="label">"{{(index . 0).Name}}"</label>
+            </div>
+            <div class="info">
+              <div class="members">
+                <h3>Members</h3>
+              </div>
+              <div class="creationDate">
+                <h3>Creation date: {{(index . 0).CreationDate}}</h3>
+              </div>
+              <div class="firstAlbum">
+                <h3>First album: {{(index . 0).FirstAlbum}}</h3>
+              </div>
+              <div class="memberList">
+                <p>{{(index . 0).MemberList}}</p>
+              </div>
+              <div class="name">
+                <h3>{{(index . 0).Name}}</h3>
+              </div>
+            </div>
+            <div class="tourDates">
+              <div class="label">
+                <h3>Tour dates</h3>
+              </div>
+              <div class="gigPlace">
+                <p>{{(index . 0).Locations}}</p>
+              </div>
+              <div class="gigDate">
+                <p>{{(index . 0).ConcertDates}}</p>
+              </div>
+            </div>
+          </div>
+        <footer>This project was made by Jaan.Ginzul, _parker_, rols55</footer>
+    </body>
+</html>

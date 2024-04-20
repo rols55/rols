@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sortable</title>
+  <link rel="stylesheet" type="text/css" href="./sortable.css">
+</head>
+<body>
+  <input class="search" type="text" id="mySearch" onkeyup="search()" placeholder="Search for names...">
+  <select class="select" id="pageSizeSelect">
+      <option value="10">10</option>
+      <option value="20" selected>20</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+      <option value="all">All</option>
+  </select>
+  <table id="superherosTable">
+      <thead>
+        <tr>
+          <th>Icon</th>
+          <th data-sort="name">Name</th>   
+          <th data-sort="biography.fullName">Full Name</th>
+          <th data-sort="powerstats.intelligence">Intelligence</th>
+          <th data-sort="powerstats.strength">Strength</th>
+          <th data-sort="powerstats.speed">Speed</th>
+          <th data-sort="powerstats.durability">Durability</th>
+          <th data-sort="powerstats.power">Power</th>
+          <th data-sort="powerstats.combat">Combat</th>
+          <th data-sort="appearance.race">Race</th>
+          <th data-sort="appearance.gender">Gender</th>
+          <th data-sort="appearance.height">Height</th>
+          <th data-sort="appearance.weight">Weight</th>
+          <th data-sort="biography.placeOfBirth">Place Of Birth</th>
+          <th data-sort="biography.alignment">Alignment</th>
+        </tr>
+      </thead>
+    <tbody>
+    </tbody>
+  </table>
+  <button class="button-3" id="prevButton">Previous</button> 
+  <button class="button-3" id="nextButton">Next</button> 
+  <div class="page" id="currentPage"></div>
+  <script>
+
+  let checkSearch = 0;
+  let pageSize = 20;
+  let temp = 0;
+  let superheroes;
+  let curPage = 1;
+  let data;
+  let table
+  let sortCol;
+  let sortAsc = false;
+
+  document.addEventListener('DOMContentLoaded', init, false);
+
+  pageSizeSelect.addEventListener('change', function() {
+    if (pageSizeSelect.value !== 'all') {
+      pageSize = parseInt(pageSizeSelect.value);
+    } else {
+      const table = document.getElementById('superherosTable');
+      const tbody = table.querySelector('tbody');
+      const tableLength = tbody.rows.length;
+      pageSize = data.length;
+    }
+    curPage = 1;
+    createTable();
+  });
+
+
+  async function init() {
+    table = document.querySelector('#superherosTable tbody');
+    let resp = await fetch('https://rawcdn.githack.com/akabab/superhero-api/0.2.0/api/all.json');
+    data = await resp.json();
+    createTable();
+    document.querySelectorAll('#superherosTable thead tr th').forEach(t => {
+        t.addEventListener('click', sort, false);
+    });
+    
+  }
+
+  document.querySelector('#nextButton').addEventListener('click', nextPage, false);
+  document.querySelector('#prevButton').addEventListener('click', previousPage, false);
+
+  function previousPage() {
+    if(curPage > 1) curPage--;
+    createTable();
+  }
+      
+  function nextPage() {
+    if((curPage * pageSize) < data.length) curPage++;
+    createTable();
+  }
+
+  function createTable() {
+    let result = '';
+    data
+      .filter((row, index) => {
+        let start = (curPage - 1) * pageSize;
+        let end = curPage * pageSize;
+        if (index >= start && index < end) return true;
+      })
+      .forEach((superhero) => {
+        result += `<tr onclick="handleRowClick(event, ${superhero.id})">
+            <td><img src="${superhero.images.xs}" alt="Superhero Image"></td>
+            <td>${superhero.name}</td>
+            <td>${superhero.biography.fullName}</td>
+            <td>${superhero.powerstats.intelligence}</td>
+            <td>${superhero.powerstats.strength}</td>
+            <td>${superhero.powerstats.speed}</td>
+            <td>${superhero.powerstats.durability}</td>
+            <td>${superhero.powerstats.power}</td>
+            <td>${superhero.powerstats.combat}</td>
+            <td>${superhero.appearance.race}</td>
+            <td>${superhero.appearance.gender}</td>
+            <td>${superhero.appearance.height}</td>
+            <td>${superhero.appearance.weight}</td>
+            <td>${superhero.biography.placeOfBirth}</td>
+            <td>${superhero.biography.alignment}</td>
+          </tr>`;
+      });
+    table.innerHTML = result;
+    const currentPageElement = document.getElementById('currentPage');
+    const pageNumber = curPage;
+    currentPageElement.textContent = `Current Page: ${pageNumber}`;
+  }
+
+  function handleRowClick(event, heroId) {
+    const hero = data.find((superhero) => superhero.id === heroId);
+    if (hero) {
+      // Create a popup container element
+      const popupContainer = document.createElement('div');
+      popupContainer.classList.add('popup-container');
+
+      // Create the popup content
+      const popupContent = document.createElement('div');
+      popupContent.classList.add('popup-content');
+
+      // Create the close button
+      const closeButton = document.createElement('span');
+      closeButton.classList.add('close-button');
+      closeButton.textContent = 'X';
+      closeButton.addEventListener('click', () => {
+        // Remove the popup when the close button is clicked
+        document.body.removeChild(popupContainer);
+      });
+
+      // Create the hero image element
+      const heroImage = document.createElement('img');
+      heroImage.src = hero.images.lg;
+      heroImage.alt = 'Superhero Image';
+      heroImage.classList.add('hero-image');
+
+      // Create a div to display the hero information
+      const heroInfo = document.createElement('div');
+      heroInfo.classList.add('hero-info');
+      heroInfo.innerHTML = `
+        <h2>${hero.name}</h2>
+        <p>Full Name: ${hero.biography.fullName}</p>
+        <p>Intelligence: ${hero.powerstats.intelligence}</p>
+        <p>Strength: ${hero.powerstats.strength}</p>
+        <p>Speed: ${hero.powerstats.speed}</p>
+        <p>Durability: ${hero.powerstats.durability}</p>
+        <p>Power: ${hero.powerstats.power}</p>
+        <p>Combat: ${hero.powerstats.combat}</p>
+        <p>Race: ${hero.appearance.race}</p>
+        <p>Gender: ${hero.appearance.gender}</p>
+        <p>Height: ${hero.appearance.height}</p>
+        <p>Weight: ${hero.appearance.weight}</p>
+        <p>Place of Birth: ${hero.biography.placeOfBirth}</p>
+        <p>Alignment: ${hero.biography.alignment}</p>
+      `;
+
+      // Add the hero image and information to the popup content
+      popupContent.appendChild(heroImage);
+      popupContent.appendChild(heroInfo);
+      popupContent.appendChild(closeButton);
+
+      // Add the popup content to the popup container
+      popupContainer.appendChild(popupContent);
+
+      // Append the popup container to the body
+      document.body.appendChild(popupContainer);
+
+      // Close the popup when clicking outside the content area
+      popupContainer.addEventListener('click', (event) => {
+        if (event.target === popupContainer) {
+          document.body.removeChild(popupContainer);
+        }
+      });
+    }
+  }
+
+  function convertToCentimeters(height) {
+    const [value, unit] = height;
+    let centimeters;
+    if (unit === 'cm') {
+      centimeters = Number(value);
+    } else if (unit === 'meters') {
+      centimeters = Number(value) * 100;
+    }
+    return centimeters;
+  }
+      
+  function sort(e) {
+    let thisSort = e.target.dataset.sort;
+    if (sortCol === thisSort) sortAsc = !sortAsc;
+    sortCol = thisSort;
+    const sortKeys = sortCol.split('.');
+    data.sort((a, b) => {
+      let aValue = a;
+      let bValue = b;
+      for (let key of sortKeys) {
+        aValue = aValue[key];
+        bValue = bValue[key];
+      }
+      if (thisSort.includes('biography.placeOfBirth')){
+        aValue = aValue.replace(/[()]/g, "")
+        bValue = bValue.replace(/[()]/g, "")
+      }
+      if (thisSort.includes('weight')){
+        if (aValue[0].split(' ')[0].includes("-")){
+          return 1
+        }
+        if (bValue[0].split(' ')[0].includes("-")){
+          return -1
+        }
+        aValue = Number(aValue[0].split(' ')[0])
+        bValue = Number(bValue[0].split(' ')[0])
+      }
+      if (thisSort.includes('height') && aValue[0] !== 'Shaker Heights, Ohio' && bValue[0] !== 'Shaker Heights, Ohio'){
+
+        aValue = convertToCentimeters(aValue[1].split(' '))
+        bValue = convertToCentimeters(bValue[1].split(' '))
+      }
+      if (aValue === 0 || aValue === '-' ||  aValue === null|| aValue === ''){
+        return 1 
+      }
+      if (bValue === 0 || bValue === '-' ||  bValue === null || bValue === ''){
+        return -1
+      }
+      if (aValue < bValue) return sortAsc ? 1 : -1;
+      if (aValue > bValue) return sortAsc ? -1 : 1;
+      return 0
+    });
+    createTable();
+  }
+
+  function search() {
+    if (checkSearch === 0) {
+        temp = pageSize;
+    }
+    pageSize = data.length;
+    createTable()
+    var input, filter, table, tr, td, i, txtValue;
+    input = document.getElementById("mySearch");
+    filter = input.value.toUpperCase();
+    table = document.getElementById("superherosTable");
+    tr = table.getElementsByTagName("tr");
+    for (i = 0; i < tr.length; i++) {
+      checkSearch = 1;
+      if (filter === '') {
+        pageSize = temp;
+        createTable();
+        checkSearch = 0;
+        return;
+      }
+      td = tr[i].getElementsByTagName("td")[1];
+      if (td) {
+        txtValue = td.textContent || td.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          tr[i].style.display = "";
+        } else {
+          tr[i].style.display = "none";
+        }
+      }
+    }
+  }
+  </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{{define "chat"}}
+<div class="modal" id="chat" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header border-0 pb-0">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body border-0 pt-1">
+                <h4 id="titleUsername" class="mt-0 ms-4 mb-3 text-start text-primary"></h4>
+                <div class="form-floating mx-4">
+                    <div id="messages" style="height: 20vh"></div>
+                </div>
+                <form id="chatInputForm" class="row g-3 custom-margin">
+                    <div class="col-md-11">
+                        <input type="text" class="form-control" id="msg" autofocus />
+                    </div>   
+                    <div class="col-md-1">
+                        <input type="submit" class="btn btn-primary" value="Send"/>
+                    </div>
+                    <div class="col-12">
+                        <input type="hidden" id="uuid" name="uuid" value="{{.User.UUID}}">
+                    </div>
+                    <div class="col-12">
+                        <input type="hidden" id="username"  name="username" value="{{.User.Username}}">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{{end}}

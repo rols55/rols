@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" href="static/login.css">
+  <meta charset="UTF-8">
+</head>
+
+<body>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" placeholder="Username" required>
+      <input type="password" placeholder="Password" required>
+      <button type="submit">Login</button>
+    </form>
+    <button id="registerButton">Register</button>
+    <form id="registerForm" style="display: none;">
+      <input type="email" placeholder="Email"
+        pattern="/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/g"
+        title="Invalid email address" required>
+      <input type="text" placeholder="Username" pattern="/(?!.*[\.\-\_]{2,})^[a-zA-Z0-9\.\-\_]{3,24}$/gm"
+        title="Minimum length 3, maximum length 24. Can only contain alphanumeric characters and the following special characters: dot, underscore, dash.">
+      <input type="password" id="password" placeholder="Password" pattern="(?=.*\d)(?=.*[A-Z]).{8,}"
+        title="Password must be at least 8 characters long, contain at least one number, and at least one capital letter"
+        required>
+      <input type="password" id="repassword" placeholder="Retype Password" required>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+  <script src="static/login.js"></script>
+</body>
+
+</html>

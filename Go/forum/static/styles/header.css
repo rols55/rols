@@ -1,0 +1,23 @@
+.header-button {
+    border: none;
+    padding: 0.2em;
+    font-size: 1.25em;
+    color: white;
+    cursor: pointer;
+}
+
+#login {
+    border: none;
+    padding: 0.2em;
+    font-size: 2em;
+    color: white;
+    cursor: pointer;
+}
+
+#logout {
+    border: none;
+    padding: 0.2em;
+    font-size: 1.25em;
+    color: white;
+    cursor: pointer;
+}

@@ -1,0 +1,30 @@
+{{define "title"}}FORUM{{end}}
+{{define "main"}}
+    <div class="col-lg-8 pt-4 ps-0">
+        <h3 class="currentCatTitle fw-bold fs-4">{{.CurrentCategory}}</h3>
+        <div id="postsList" >
+            {{range .Posts}}
+            <button id="postButton" class="btn-light me-2 bg-transparent border-0" data-bs-toggle="modal" data-bs-target="#postModal" data-id="{{.Id}}" data-category="{{range .CategoryIds}}{{.}},{{end}}">
+                <div class="card mb-3 border-0 pb-3">
+                    <div class="card-header d-flex bg-transparent border-0 ps-0 pb-0 justify-content-between"> 
+                        <div class="left-section d-flex align-items-center">
+                            <p class="post-title fw-bolder fs-5 text-decoration-none me-2" href="/post/{{.Id}}">
+                                {{.Title}}</p>
+                        </div>
+                        <div class="right-section d-flex flex-nowrap align-items-center">
+                            <span class="username me-3">{{.Author}}</span>
+                            <i class="fa-regular fa-comment fa-xl me-1"></i>
+                            <span class="comment-count post_{{.Id}}">{{.CommentsQty}}</span>
+                        </div>
+                    </div>
+                    <a class="card-body text-decoration-none ps-0 pt-1" href="/post/{{.Id}}">
+                        <p class="post-text mb-0">
+                            {{.Text}}
+                        </p>
+                    </a>
+                </div>
+            </button>
+            {{end}}
+        </div>
+    </div>
+{{end}}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Magical text-o-matic</title>
+        <link rel="stylesheet" href="../style/style.css"/>
+    </head>
+    <body>
+        <h1>You can turn your text into art by</h1>
+        <br>
+            <form method="POST" action="/ascii-art">
+            <div>
+                <textarea id="ascii_input" name="inputText" rows="5" cols="30" placeholder="Type here" required></textarea>
+            </div>
+            <div class="text_style">
+                <input type="radio" id="standard" name="banner" value="standard" checked=""/>
+                <label for="standard">Standard</label>
+                <input type="radio" id="shadow" name="banner" value="shadow">
+                <label for="shadow">Shadow</label>
+                <input type="radio" id="thinkertoy" name="banner" value="thinkertoy">
+                <label for="thinkertoy">Thinkertoy</label>
+            </div>
+            <br>
+            <img src="../images/bongo-cat.gif" alt="Bongo Cat"/>
+                <input type="submit" value="~*magic*~" id="submit" name="submit">
+            </form>
+    </body>
+    <footer>
+        <p>Created by: Jaan.Ginzul, rols55, _Parker_</p>
+    </footer>
+</html>

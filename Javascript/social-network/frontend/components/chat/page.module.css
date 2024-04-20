@@ -1,0 +1,85 @@
+/* User Chat */
+
+.chatContainer {
+  min-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 50%;
+  background-color: #474747;
+}
+
+.messageContainer {
+  max-height: 300px;
+  overflow-y: auto;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.message {
+  background-color: #919090;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+}
+
+.messageSender {
+  background-color: #666;
+  border-radius: 8px;
+  padding: 8px;
+  margin-bottom: 5px;
+  word-wrap: break-word;
+  text-align: right;
+}
+
+.chatTitleContainer {
+  display: flex;
+}
+
+.chatTitle {
+  flex: 1;
+  margin-left: 10px;
+}
+
+.chatClose {
+  background: none;
+  cursor: pointer;
+  color: #000000;
+  font-size: 20px;
+  border: solid;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.inputForm {
+  display: flex;
+}
+
+.input {
+  flex: 1;
+  padding: 8px;
+  border-radius: 8px 0 0 8px;
+  border: 1px solid #ccc;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.button {
+  padding: 8px 15px;
+  border-radius: 0 8px 8px 0;
+  border: 1px solid #ccc;
+  background-color: #474747;
+  color: #fff;
+  cursor: pointer;
+}
+
+.emojiButton {
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  background-color: #474747;
+  color: #fff;
+  cursor: pointer;
+}
